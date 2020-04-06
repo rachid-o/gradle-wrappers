@@ -4,7 +4,9 @@ if [ -d "$GRADLE_VERSION" ]; then
   echo "ABORT because $GRADLE_VERSION already exists"
   exit
 fi
-mkdir -p $GRADLE_VERSION && cd $GRADLE_VERSION && ../5.4/gradlew wrapper --gradle-version $GRADLE_VERSION
+mkdir -p $GRADLE_VERSION && cd $GRADLE_VERSION && \
+# ../5.4/gradlew wrapper --gradle-version $GRADLE_VERSION
+ gradle wrapper --gradle-version $GRADLE_VERSION
 
 echo Created new folder for version $GRADLE_VERSION. Test it by running:
 echo ./$GRADLE_VERSION/gradlew --version
